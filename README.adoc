@@ -104,4 +104,21 @@ directory:
 
 And a test case was carried out for each case exposed in the exercise, that is, 6 test cases
 
+====
+== Docker
 
+==== Create a Docker image packaging an existing jar
+
+====
+[subs="attributes"]
+----
+./gradlew build
+docker build . -t capital_gains
+====
+
+==== To run the docker image
+====
+[subs="attributes"]
+----
+docker run -d -p 8080:8080 capital_gains
+====
