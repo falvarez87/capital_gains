@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.nubank.capitalgains.service.TestCalculateService" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-02-01T16:50:05" hostname="Fabians-MacBook-Pro.local" time="0.458">
+  <properties/>
+  <testcase name="Case1()" classname="com.nubank.capitalgains.service.TestCalculateService" time="0.448"/>
+  <testcase name="Case2()" classname="com.nubank.capitalgains.service.TestCalculateService" time="0.001"/>
+  <testcase name="Case3()" classname="com.nubank.capitalgains.service.TestCalculateService" time="0.001"/>
+  <testcase name="Case4()" classname="com.nubank.capitalgains.service.TestCalculateService" time="0.001"/>
+  <testcase name="Case5()" classname="com.nubank.capitalgains.service.TestCalculateService" time="0.001"/>
+  <testcase name="Case6()" classname="com.nubank.capitalgains.service.TestCalculateService" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

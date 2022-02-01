@@ -1,0 +1,107 @@
+= Code Challenge: Capital Gains
+
+=== spring_boot_version: 2.6.3
+=== java 11
+=== project_id: CapitalGains
+
+== What You Will build
+application that calculates how much tax you should pay based on the profit or losses of a stock market investment.
+
+==== Input
+[source,text]
+----
+Field Name          Meaning
+operation           If the operation was a buy or sell
+unit-cost           The stock's unit cost
+quantity            The quantity of stocks negotiated
+----
+
+==== Output
+[source,text]
+----
+Field Name      Meaning
+tax             The amount of taxes to be paid based on operation
+----
+
+== Run the Application
+
+To run the application, run the following command in a terminal window (in the `CapitalGains`)
+directory:
+
+====
+[subs="attributes"]
+----
+./gradlew bootRun
+----
+====
+
+You should see output similar to the following:
+
+====
+[source,text]
+----
+.   ____          _            __ _ _
+/\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+\\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+'  |____| .__|_| |_|_| |_\__, | / / / /
+=========|_|==============|___/=/_/_/_/
+:: Spring Boot ::                (v2.6.3)
+
+2022-02-01 11:51:51.850  INFO 4371 --- [           main] c.n.c.CapitalGainsApplication            : Starting CapitalGainsApplication using Java 11.0.12 on Fabians-MacBook-Pro.local with PID 4371 (/Users/falvarez/Documents/NuBank/CapitalGains/build/classes/java/main started by falvarez in /Users/falvarez/Documents/NuBank/CapitalGains)
+2022-02-01 11:51:51.851  INFO 4371 --- [           main] c.n.c.CapitalGainsApplication            : No active profile set, falling back to default profiles: default
+2022-02-01 11:51:52.559  INFO 4371 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-02-01 11:51:52.568  INFO 4371 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-01 11:51:52.569  INFO 4371 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-01 11:51:52.637  INFO 4371 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-01 11:51:52.638  INFO 4371 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 753 ms
+2022-02-01 11:51:52.938  INFO 4371 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-02-01 11:51:52.947  INFO 4371 --- [           main] c.n.c.CapitalGainsApplication            : Started CapitalGainsApplication in 1.423 seconds (JVM running for 1.789)
+----
+====
+
+Now run the service with curl (in a separate terminal window), by running the following
+command (shown with its output):
+====
+[source,text]
+----
+$ curl -X POST localhost:8080/api/calculate/ -H 'Content-Type: application/json' -d '[{"operation":"buy", "unit-cost":10, "quantity": 100},{"operation":"sell", "unit-cost":15, "quantity": 50},{"operation":"sell", "unit-cost":15, "quantity": 50}]'
+----
+Output:
+----
+[{"tax":0.0},{"tax":0.0},{"tax":0.0}]
+----
+====
+
+The actuator exposes the following:
+
+* http://localhost:8080/actuator/health[actuator/health]
+* http://localhost:8080/actuator[actuator]
+
+You can check the health of the application by running the following command:
+
+====
+[source,bash]
+----
+$ curl localhost:8080/actuator/health
+{"status":"UP"}
+----
+
+== Run the Application tests
+
+To run the application tests, run the following command in a terminal window (in the `CapitalGains`)
+directory:
+
+====
+[subs="attributes"]
+----
+./gradlew clean test --info
+----
+====
+
+The results of the tests can be seen in the `CapitalGains/build/test-results`
+directory:
+
+And a test case was carried out for each case exposed in the exercise, that is, 6 test cases
+
+
